@@ -3,14 +3,23 @@ description: "Scans repository with Snyk"
 branding:
   color: purple
   icon: activity
+inputs:
+  type:
+    required: false
+    description: "Scan type"
+    default: iac
+  image:
+    required: false
+    description: "Action image"
+    default: "snyk/snyk:alpine"
 runs:
   using: "docker"
-  image: "docker://snyk/snyk:alpine"
+  image: "docker://${{ inputs.image }}"
   env:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
-    SNYK_INTEGRATION_VERSION: iac
+    SNYK_INTEGRATION_VERSION: ${{ inputs.type }}
   args:
     - snyk
-    - iac
+    - ${{ inputs.type }}
     - test
     - --sarif-file-output=snyk.sarif
