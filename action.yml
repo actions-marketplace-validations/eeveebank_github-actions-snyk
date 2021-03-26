@@ -1,0 +1,16 @@
+name: "Snyk Scan"
+description: "Scans repository with Snyk"
+branding:
+  color: purple
+  icon: activity
+runs:
+  using: "docker"
+  image: "docker://snyk/snyk:alpine"
+  env:
+    SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
+    SNYK_INTEGRATION_VERSION: iac
+  args:
+    - snyk
+    - iac
+    - test
+    - --sarif-file-output=snyk.sarif
