@@ -1,2 +1,3 @@
-# github-actions-snyk
-Our own snyk action
+# Github Actions: Snyk
+
+Simplified Github action using snyk.
