@@ -1,0 +1,28 @@
+name: "Snyk Docker Image Scanning"
+description: "Check your Docker images for vulnerabilties using Snyk"
+branding:
+  icon: "alert-triangle"
+  color: "yellow"
+inputs:
+  command:
+    required: false
+    description: "Snyk command to run; defaults to 'container test'"
+    default: container test
+  args:
+    required: false
+    description: "Additional arguments to pass to Snyk"
+  image:
+    required: true
+    description: "Image to test"
+runs:
+  using: "docker"
+  image: "eu.gcr.io/mettle-bank/snyk/snyk:docker"
+  env:
+    SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
+    SNYK_INTEGRATION_VERSION: docker
+  args:
+    - snyk
+    - ${{ inputs.command }}
+    - ${{ inputs.args }}
+    - --docker
+    - ${{ inputs.image }}
