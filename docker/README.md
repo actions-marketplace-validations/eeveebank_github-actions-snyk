@@ -3,6 +3,9 @@
 A [GitHub Action](https://github.com/features/actions) for using [Snyk](https://snyk.io) to check for
 vulnerabilities in your Docker images.
 
+_Note: The action **must** point to a tag whose manifest list only includes image layers (if only an `amd64` version
+exists for example) or to a tag whose manifest list includes references to all platforms where the action is to run!_
+
 You can use the Action as follows:
 
 ```yaml
