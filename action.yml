@@ -8,6 +8,10 @@ inputs:
     required: false
     description: "Scan type"
     default: iac
+  severity:
+    required: false
+    description: "Severity level threshold"
+    default: low
 runs:
   using: "docker"
   image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:alpine"
@@ -19,3 +23,4 @@ runs:
     - ${{ inputs.type }}
     - test
     - --sarif-file-output=snyk.sarif
+    - --severity-threshold=${{ inputs.severity }}
