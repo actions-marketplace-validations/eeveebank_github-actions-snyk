@@ -31,4 +31,3 @@ runs:
     - --data-binary
     - '{"target": {"owner": "eeveebank","name": "${{ inputs.repository_name }}","branch": "master"}}'
     - "https://snyk.io/api/v1/org/${{ inputs.org_id }}/integrations/${{ inputs.integration_id }}/import"
-
