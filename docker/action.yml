@@ -1,8 +1,8 @@
 name: "Snyk Docker Image Scanning"
 description: "Check your Docker images for vulnerabilties using Snyk"
 branding:
-  icon: "alert-triangle"
-  color: "yellow"
+  icon: "anchor"
+  color: "blue"
 inputs:
   command:
     required: false

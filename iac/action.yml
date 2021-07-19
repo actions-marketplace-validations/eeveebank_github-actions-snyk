@@ -1,0 +1,21 @@
+name: "Snyk Terraform Scanning"
+description: "Check for vulnerabilities in Terraform using Snyk"
+branding:
+  icon: "aperture"
+  color: "purple"
+inputs:
+  args:
+    required: false
+    description: "Additional arguments to pass to Snyk"
+runs:
+  using: "docker"
+  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk@sha256:48ec0f4983b9baf9ea943ff8be52506412aa00f1d046e21dee28f0761b167be8"
+  env:
+    SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
+    SNYK_INTEGRATION_VERSION: iac
+  args:
+    - snyk
+    - iac
+    - test
+    - ${{ inputs.args }}
+
