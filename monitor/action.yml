@@ -1,0 +1,41 @@
+name: "Snyk Monitoring"
+description: "Add Repository to Snyk"
+branding:
+  icon: "activity"
+  color: "yellow"
+inputs:
+  repository_name:
+    required: true
+    description: Name of the repository.
+  snyk_token:
+    required: true
+    description: Snyk token to interact with the API.
+  org_id:
+    required: true
+    description: Snyk organisation this project is to belong to.
+  integration_id:
+    required: false
+    description: The integration which to add this project through.
+    default: 2eadda8c-00e5-477d-a82c-5e1e44615b42
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - --include
+    - --request
+    - POST
+    - --header
+    - "Content-Type: application/json; charset=utf-8"
+    - --header
+    - "Authorization: token ${{ inputs.snyk_token }}"
+    - --data-binary
+    - >-
+      '{
+        "target": {
+          "owner": "eeveebank",
+          "name": "${{ inputs.repository_name }}",
+          "branch": "master"
+        }
+      }'
+    - "https://snyk.io/api/v1/org/${{ inputs.org_id }}/integrations/${{ inputs.integration_id }}/import"
+

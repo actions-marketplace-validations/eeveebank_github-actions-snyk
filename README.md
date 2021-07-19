@@ -16,10 +16,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v2
       - name: Run Snyk Scanning
-        uses: eeveebank/github-actions-snyk@v1.0.0
+        uses: eeveebank/github-actions-snyk/iac@master
         env:
-          SNYK_TOKEN: ${{ secrets.PLATFORM_SNYK_TOKEN }}
-      - uses: github/codeql-action/upload-sarif@v1
-        with:
-          sarif_file: snyk.sarif
+          SNYK_TOKEN: ${{ secrets.SNYK_PLATFORM_TERRAFORM_TOKEN }}
 ```
