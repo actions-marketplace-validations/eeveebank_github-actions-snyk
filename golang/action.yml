@@ -1,8 +1,8 @@
-name: "Snyk Terraform Scanning"
-description: "Check for vulnerabilities in Terraform using Snyk"
+name: "Snyk Golang"
+description: "Check your Golang application for vulnerabilties using Snyk"
 branding:
-  icon: "aperture"
-  color: "purple"
+  icon: "check"
+  color: "gray-dark"
 inputs:
   args:
     required: false
@@ -12,9 +12,8 @@ runs:
   image: "docker://eu.gcr.io/mettle-bank/snyk/snyk@sha256:48ec0f4983b9baf9ea943ff8be52506412aa00f1d046e21dee28f0761b167be8"
   env:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
-    SNYK_INTEGRATION_VERSION: iac
+    SNYK_INTEGRATION_VERSION: golang
   args:
     - snyk
-    - iac
     - test
     - ${{ inputs.args }}
