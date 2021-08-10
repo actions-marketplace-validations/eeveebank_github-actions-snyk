@@ -9,7 +9,7 @@ inputs:
     description: "Additional arguments to pass to Snyk"
 runs:
   using: "docker"
-  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.676.0-golang-1.15@sha256:6ea7e885e148d27117bf952f2e313c7f118b3b4b5d0da635afb56605230d5840"
+  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.677.0-golang-1.16@sha256:3e28076bb57f69fae0b0b70d0953d2ab5c0bce91c00ab5143f309f7f6e6951d2"
   env:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: golang

@@ -9,7 +9,7 @@ inputs:
     description: "Additional arguments to pass to Snyk"
 runs:
   using: "docker"
-  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.676.0-alpine@sha256:a6ddcf6c81bc76b40d7041080d63a014b3617cc41465baf0b489f8ef84a3c897"
+  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.677.0-alpine@sha256:6fdef5c3f94ee523172e5cc4983ce4df10b5e8a02f754a1e0d13820518df87ac"
   env:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: iac

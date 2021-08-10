@@ -16,7 +16,7 @@ inputs:
     description: "Image to test"
 runs:
   using: "docker"
-  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.676.0-docker-19.03@sha256:0c1ed268fadcd27f95a737f8e0969e071ecc5b3552f75af7f746794779264b3e"
+  image: "docker://eu.gcr.io/mettle-bank/snyk/snyk:v1.677.0-docker-19.03@sha256:6fdef5c3f94ee523172e5cc4983ce4df10b5e8a02f754a1e0d13820518df87ac"
   env:
     SNYK_INTEGRATION_NAME: GITHUB_ACTIONS
     SNYK_INTEGRATION_VERSION: docker
